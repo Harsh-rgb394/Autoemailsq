@@ -226,7 +226,7 @@ const FlowChart = () => {
   // Handle the process start
   const handleStartProcess = async () => {
     const response = await axios.post(
-      'http://localhost:5000/api/sequence/create-sq',
+      'https://autoemailsq.onrender.com/api/sequence/create-sq',
       {
         nodes,
         edges,
