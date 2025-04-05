@@ -15,11 +15,7 @@ const PORT = process.env.PORT;
 ConnectDB();
 
 // ✅ Configure CORS properly
-app.use(cors({
-  origin: "http://localhost:5173",  // ✅ Use the correct frontend URL (Vite default port)
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,  // ✅ Allow cookies if needed
-}));
+app.use(cors());
 
 // Middleware
 app.use(express.json());
