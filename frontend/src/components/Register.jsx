@@ -49,7 +49,7 @@ const Register = () => {
 
             try {
                 // POST request to login route of backend
-                const res = await axios.post("https://autoemailsq.onrender.com/user/login", logindata);
+                const res = await axios.post("https://autoemailsq-1.onrender.com/user/login", logindata);
 
                 if (res.data.success) {
                     alert("Login Successful");
@@ -67,7 +67,7 @@ const Register = () => {
         } else {
             // User is trying to register - send complete formData
             try {
-                const res = await axios.post("https://autoemailsq.onrender.com/user/register", formData);
+                const res = await axios.post("https://autoemailsq-1.onrender.com/user/register", formData);
 
                 if (res.data.success) {
                     alert("Register Successful");
