@@ -78,8 +78,8 @@ const scheduleEmails = async () => {
   // Extract the recipient email address from the lead source node label
   const to = leadSourceNode?.data?.label?.split("- (")[1].split(")")[0];
 
-  // let totalDelay = 1000 * 60 * 60;
-  let totalDelay = 0; // Initialize total delay to 0    
+  let totalDelay = 1000 * 60 * 60;
+  // let totalDelay = 60*60*1000; // Initialize total delay to 0    
 
   // Iterate through the nodes in the sequence
   for (const node of sequence.nodes) {
