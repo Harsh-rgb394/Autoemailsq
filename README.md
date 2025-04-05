@@ -55,6 +55,7 @@ Whether you're running outreach campaigns, nurturing leads, or automating follow
 ### Backend
 - **Node.js & Express.js** – REST API and business logic.
 - **MailTrap-For fake or dummy server of mails.
+- **Mailgun for real time email getting on gmail server.
 - **Agenda.js** – Job scheduling and background tasks.
 - **Nodemailer** – Sending transactional emails.
 - **MongoDB** – Stores users, sequences, node metadata, and job schedules.
@@ -66,7 +67,7 @@ Whether you're running outreach campaigns, nurturing leads, or automating follow
 
 ### 📁 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/automated-email-sequencer.git
+git clone https://github.com/Harsh-rgb394/Autoemailsq.git
 cd automated-email-sequencer
 ```
 
@@ -79,11 +80,27 @@ Create `.env` files for both `backend` and `frontend`.
 #### 📦 Backend `.env` (example)
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/email-sequencer
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
-SMTP_PASS=your_email_password_or_app_token
+MONGO_URL=url_db_url
+JWT_SECRET=your_jwt_secret
+# for dummy mail use we use mailtrap.io smtp server 
+MAILTRAP_HOST=sandbox.smtp.mailtrap.i
+MAILTRAP_PORT=587
+MAILTRAP_USER=your_mailtrap_id
+MAILTRAP_PASSWORD=yout_maitrap_password
+
+
+# for real time server we mailgun
+MAILGUN_API_KEY=yout_mail_api_key
+MAILGUN_DOMAIN=your_mailgun_domain
+MAILGUN_FROM=your_mailgunfromid
+
+
+
+
+
+
+
+
 ```
 
 #### 🌐 Frontend `.env` (example)
@@ -97,7 +114,7 @@ VITE_BACKEND_URL=http://localhost:5000
 
 ```bash
 # Install backend dependencies
-cd backend
+cd backendme
 npm install
 
 # Install frontend dependencies
@@ -111,7 +128,7 @@ npm install
 
 #### Start the backend server
 ```bash
-cd backend
+cd backendme
 npm run dev
 ```
 
@@ -158,7 +175,7 @@ automated-email-sequencer/
 │   ├── models/
 │   ├── routes/
 │   ├── controllers/
-│   ├── scheduler/         # Agenda jobs
+│   ├── utils/         # Agenda jobs
 │   └── app.js
 │
 ├── frontend/
@@ -186,8 +203,9 @@ automated-email-sequencer/
 ## 🥪 Testing Strategy (Optional Section)
 
 - **Frontend**: Use `Vitest` + `React Testing Library` to simulate form inputs and verify network requests.
-- **Backend**: Use `Jest` or `Mocha` to test scheduling logic and email sending.
+- **Backend**: nodejs as bakend enviroment
 - **Mocks**: Use mock SMTP server like [Mailtrap](https://mailtrap.io/) for development testing.
+- **Realimte**:User Mailgun server for production testing.[Mailgun[(https://app.mailgun.com)].
 
 ---
 
